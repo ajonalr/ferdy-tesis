@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Estudiante;
 use App\Models\Grado;
+use App\Models\MateriaGrado;
+use App\Models\NotaEstudiente;
+use App\Models\NotaFinalMateria;
 use Illuminate\Http\Request;
 
 class EstudianteController extends Controller
@@ -20,7 +23,28 @@ class EstudianteController extends Controller
     }
     public function store(Request $request)
     {
-        Estudiante::create($request->all());
+        $estu = Estudiante::create($request->all());
+        // buscamos los cusrsos de un grado
+        $curso = MateriaGrado::where('grado_id', $request->grado_id)->get();
+        if (count($curso) > 0) {
+            foreach ($curso as $cur) {
+                // asignamos todas la tareas de un estudiante nuevo
+                $tareas_grado = NotaFinalMateria::where('materia_id', $cur->id)->get();
+                if (count($tareas_grado) > 0) {
+                    foreach ($tareas_grado as $ta) {
+                        $te = new NotaEstudiente();
+                        $te->estudiante_id = $estu->id;
+                        $te->nota_final_id = $ta->id;
+                        $te->calificacion = 0;
+                        $te->save();
+                    }
+                }
+
+
+            }
+        }
+
+
         return back()->with(['info' => 'estudiante guardado']);
     }
     public function update(Request $request, $id)
@@ -59,6 +83,6 @@ class EstudianteController extends Controller
     public function encargado()
     {
         $data = Estudiante::all();
-        return view('escuela.estudiante.reportes.all', compact('data'));
+        return view('escuela.estudiante.reportes.encargados', compact('data'));
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MateriaGradoController;
 use App\Http\Controllers\Admin\NotaFinalMateriaController;
 use App\Http\Controllers\Admin\PofesorController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('/users', UserController::class)->middleware('auth');
-Route::resource('/roles', 'RoleController')->middleware('auth');
+Route::resource('/roles', RoleController::class)->middleware('auth');
 Route::resource('/permissions', 'PermissionController')->except(['show'])->middleware('auth');
 
 // rauta para ejecutar comando artisan desde la web

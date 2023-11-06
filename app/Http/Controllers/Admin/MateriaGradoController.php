@@ -103,8 +103,6 @@ class MateriaGradoController extends Controller
             ]);
         }
 
-
-
         return back()->with(['info' => 'materia guardado']);
     }
     public function update(Request $request, $id)

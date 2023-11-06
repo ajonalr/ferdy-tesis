@@ -2,6 +2,19 @@
 
 @section('content')
 <div class="container-fluid">
+
+   <div class="row justify-content-center mt-4">
+      <div class="col-md-12 text-center">
+         <img src="{{asset('logos/main.png')}}" alt="" width="15%">
+      </div>
+
+      <div class="col-md-12">
+         <p>BOLETIN</p>
+         NOMBRE: {{$estudiante->nombre}} <br>
+         GRADO: {{$grado->nombre}}, SECCION: {{$grado->seccion}}
+      </div>
+   </div>
+
    <div class="row justify-content-center mt-4">
       <div class="col-md-5">
 
@@ -48,6 +61,11 @@
             </tbody>
          </table>
 
+
+         <p class="text-center mt-5">
+            F. ___________________________________________________ <br> 
+            Padre de Familia
+         </p>
 
       </div>
    </div>

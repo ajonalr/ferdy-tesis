@@ -4,8 +4,7 @@
          <div class="col-md-8">
             <div class="page-header-title">
                <h5 class="m-b-10">{{config('app.name')}}</h5>
-               <p class="m-b-0">ESCUELA OFICIAL RURAL MIXTA ALDEA ZACULEU CENTRAL.</p>
-            </div>
+               </div>
          </div>
          <div class="col-md-4">
             <ul class="breadcrumb-title">
@@ -14,7 +13,7 @@
                </li>
                <li class="breadcrumb-item"><a href="#!"> 
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  eormzaculeu@gmail.com
+                  
                </a>
                </li>
 

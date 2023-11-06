@@ -17,7 +17,7 @@
             <tbody>
                @foreach ($data as $d)
                <tr>
-                  <td>{{$d->padre}}</td>
+                  <td>{{$d->nombre}}</td>
                   <td>{{$d->t_padre}}</td>
                   <td>{{$d->t_cui}}</td>
                   <td>{{$d->grado->nombre}}, Seccion: {{$d->grado->seccion}}</td>

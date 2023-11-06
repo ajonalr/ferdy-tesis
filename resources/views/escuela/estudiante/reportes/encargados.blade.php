@@ -16,8 +16,8 @@
             <tbody>
                @foreach ($data as $d)
                <tr>
-                  <td>{{$d->nombre}} {{$d->apellido}}</td>
-                  <td>{{$d->telefono}}</td>
+                  <td>{{$d->padre}}</td>
+                  <td>{{$d->t_padre}}</td>
                   <td>{{$d->grado->nombre}}, Seccion: {{$d->grado->seccion}}</td>
                </tr>
                @endforeach
